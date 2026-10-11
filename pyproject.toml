@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arc-qwen-rl"
+version = "0.1.0"
+description = "Qwen pretraining and reinforcement-learning experiments for ARC-AGI"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "accelerate",
+    "bitsandbytes==0.50.2",
+    "causal-conv1d==1.7.0",
+    "fastapi",
+    "flash-linear-attention==0.5.2",
+    "huggingface-hub",
+    "matplotlib",
+    "ninja",
+    "numpy",
+    "packaging>=24.2",
+    "pandas",
+    "peft==0.21.0",
+    "pydantic",
+    "python-dotenv",
+    "safetensors",
+    "setuptools",
+    "tokenizers",
+    "torch @ https://download-r2.pytorch.org/whl/cu129/torch-2.13.0%2Bcu129-cp312-cp312-manylinux_2_28_x86_64.whl#sha256=df28741fcd89e3da7cce2d48cbe5299d6732d510ac20f5d422d0b85edf18c327",
+    "torchaudio @ https://download-r2.pytorch.org/whl/cu129/torchaudio-2.11.0%2Bcu129-cp312-cp312-manylinux_2_28_x86_64.whl#sha256=de4105653562f031edd6ddf7dd1485f07db6ac62cdc90d17364648cd3c89eb5a",
+    "torchcodec @ https://download.pytorch.org/whl/cu129/torchcodec-0.16.0%2Bcu129-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl#sha256=1d103c30631a2c04b2acd1602a56af7762d41051700d2077c2b6a964dbcf7f2c",
+    "torchvision @ https://download-r2.pytorch.org/whl/cu129/torchvision-0.28.0%2Bcu129-cp312-cp312-manylinux_2_28_x86_64.whl",
+    "tqdm",
+    "transformers>=5.0",
+    "uvicorn[standard]",
+    "vllm @ https://github.com/vllm-project/vllm/releases/download/v0.27.1/vllm-0.27.1%2Bcu129-cp38-abi3-manylinux_2_28_x86_64.whl",
+    "wandb",
+    "wheel",
+]
+
+[project.scripts]
+arc-pretrain = "arc_rl.pretrain:main"
+arc-pretrain-qwen3 = "arc_rl.pretrain_qwen3:main"
+arc-pretrain-qwen35-custom = "arc_rl.pretrain_qwen35_custom:main"
+arc-pretrain-qwen35-native = "arc_rl.pretrain_qwen35_native:main"
+arc-pretrain-qwen35-rslora = "arc_rl.pretrain_qwen35_rslora:main"
+arc-train-rl = "arc_rl.rl_qwen35_native_vllm:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.13",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

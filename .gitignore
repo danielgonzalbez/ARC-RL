@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Local configuration and credentials
+.env
+.env.*
+
+# Experiment outputs and large model artifacts
+checkpoints/
+logs/
+outputs/
+wandb/
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.zip
+*.txt
+
+# External ARC dataset checkout
+minimal-arc-main/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,86 @@
+{
+  "augmentation": {
+    "all_color_seeds": [
+      3408,
+      3409,
+      3410,
+      3411
+    ],
+    "eval": "2-held-out-color-swaps",
+    "train": "original+3-rotations+2-color-swaps"
+  },
+  "description": "Few-family RL diagnostic with original/rotation/train-color views and disjoint held-out color views from the same logical ARC families.",
+  "eval_example_ids": [
+    "e179c5f4_colors_0_seed_3410",
+    "e179c5f4_colors_0_seed_3411",
+    "f8ff0b80_colors_0_seed_3410",
+    "f8ff0b80_colors_0_seed_3411",
+    "e48d4e1a_colors_0_seed_3410",
+    "e48d4e1a_colors_0_seed_3411",
+    "c444b776_colors_0_seed_3410",
+    "c444b776_colors_0_seed_3411"
+  ],
+  "eval_examples": 8,
+  "logical_task_ids": [
+    "e179c5f4",
+    "f8ff0b80",
+    "e48d4e1a",
+    "c444b776"
+  ],
+  "logical_tasks": 4,
+  "partition": "data_splits/qwen35_arc_full8192_sft60_rl40_seed3407.json",
+  "partition_role": "rl",
+  "seed": 3407,
+  "selection": "fixed anchors plus farthest-point coverage of serialized total length",
+  "serialized_train_eval_overlap": 0,
+  "task_lengths": {
+    "c444b776": {
+      "prompt": 3523,
+      "target": 3928,
+      "total": 7451
+    },
+    "e179c5f4": {
+      "prompt": 681,
+      "target": 300,
+      "total": 981
+    },
+    "e48d4e1a": {
+      "prompt": 2084,
+      "target": 600,
+      "total": 2684
+    },
+    "f8ff0b80": {
+      "prompt": 1352,
+      "target": 18,
+      "total": 1370
+    }
+  },
+  "train_example_ids": [
+    "e179c5f4",
+    "e179c5f4_rotation_90",
+    "e179c5f4_rotation_180",
+    "e179c5f4_rotation_270",
+    "e179c5f4_colors_0_seed_3408",
+    "e179c5f4_colors_0_seed_3409",
+    "f8ff0b80",
+    "f8ff0b80_rotation_90",
+    "f8ff0b80_rotation_180",
+    "f8ff0b80_rotation_270",
+    "f8ff0b80_colors_0_seed_3408",
+    "f8ff0b80_colors_0_seed_3409",
+    "e48d4e1a",
+    "e48d4e1a_rotation_90",
+    "e48d4e1a_rotation_180",
+    "e48d4e1a_rotation_270",
+    "e48d4e1a_colors_0_seed_3408",
+    "e48d4e1a_colors_0_seed_3409",
+    "c444b776",
+    "c444b776_rotation_90",
+    "c444b776_rotation_180",
+    "c444b776_rotation_270",
+    "c444b776_colors_0_seed_3408",
+    "c444b776_colors_0_seed_3409"
+  ],
+  "train_examples": 24,
+  "version": 1
+}

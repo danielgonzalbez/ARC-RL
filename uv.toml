@@ -1,0 +1,5 @@
+[pip]
+# These extensions import torch from setup.py. uv performs a two-phase install:
+# ordinary requirements (including pinned CUDA PyTorch) first, then these
+# packages without build isolation in the populated environment.
+no-build-isolation-package = ["causal-conv1d", "flash-linear-attention"]
